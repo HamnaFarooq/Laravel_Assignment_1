@@ -21,7 +21,7 @@ class HomeController extends Controller
 				$id = Session('user')->TId;
 				// $courses = Teachers::with('courses')->where('TId', $id)->first()->courses;
 				$courses = Teachers::getCoursesOf($id);
-				dd($courses);
+				// dd($courses);
 				$books = Teachers::with('books')->where('TId', $id)->first()->books;
 				return view('home',compact('courses' , 'books'));
 			}
