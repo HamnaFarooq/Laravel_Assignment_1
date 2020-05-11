@@ -82,7 +82,6 @@
                                 <p class="card-text">{{$book->Author}}</p>
                                 <p class="card-text">{{$book->Price}}$</p>
                                 <p class="card-text">By:{{$book->Publisher}}</p>
-                                <p class="card-text">{{$book->copies}} copies</p>
                             </div>
                         </div>
                     </div>
