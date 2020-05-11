@@ -16,4 +16,8 @@ class Teachers extends Model
 	public function books(){
 		return $this->belongsToMany('App\Books', 'teacherissue' , 'TId' , 'Isbn');
 	}
+
+	public static function getCoursesOf($teacher_id){
+		return Teachers::with('courses')->where('TId', $teacher_id)->first()->courses;
+	}
 }
