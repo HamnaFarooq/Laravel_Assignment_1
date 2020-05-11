@@ -16,7 +16,7 @@
             <!-- Student -->
             <!--  -->
             <div class="row">
-                <b>You are Participating in:</b>
+                <b>You are Participating in the following Clubs:</b>
             </div>
             <div class="row">
                     @foreach ( $clubs as $club )
@@ -24,7 +24,25 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$club->socname}}</h5>
-                                    <p class="card-title">Credit hrs: {{$club->type}}</p>
+                                    <p class="card-title">Type: {{$club->type}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+            </div>
+
+            <div class="row">
+                <b>You are Registered in the following Courses:</b>
+            </div>
+            <div class="row">
+                    @foreach ( $learning as $course )
+                        <div class="col col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"> <b>{{$course->coursetitle}}</b> </h5>
+                                    <p class="card-title">Credit hrs: {{$course->crdhr}}</p>
+                                    <p class="card-title">Type: {{$course->coursetype}}</p>
+                                    <p class="card-title">Pre-req: {{$course->courseprereq}}</p>
                                 </div>
                             </div>
                         </div>

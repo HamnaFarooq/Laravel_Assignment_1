@@ -34,7 +34,7 @@
 	}
 	.row{
 		position: relative;
-		width: 100%;
+		width: 90%;
 	}
 	.content {
 		text-align: center;
@@ -44,7 +44,7 @@
 	.title {
 		font-size: 50px;
 	}
-	.container-fluid{width: 100%;}
+	.container-fluid{width: 90%;}
 
 	.links > a {
 		color: #636b6f;

@@ -14,7 +14,8 @@ class HomeController extends Controller
 			if($type[0]->tname == 'Student'){
 				$id = Session('user')->sid;
 				$clubs = Student::with('societies')->where('sid',$id)->first()->societies;
-				return view('home',compact('clubs'));
+				$learning = Student::with('courses')->where('sid',$id)->first()->courses;
+				return view('home',compact('clubs','learning'));
 			}
 			elseif ($type[0]->tname == 'Teacher') {
 				$id = Session('user')->TId;

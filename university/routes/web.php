@@ -35,11 +35,11 @@ Route::get('/extra', function () {
     // $course_teachers = App\Course::with('teachers')->get();
     // $teachers = App\Books::with('teachers')->get();
     // $books_issued = App\Teachers::with('books')->get();
-    $learning = App\Student::with('courses')->get();
+    // $learning = App\Student::with('courses')->get();
     // $course_teachers = App\Course::with('teachers')->get();
     //
     //
-    dd($learning);
+    // dd($course_teachers);
     //
     //
 });
