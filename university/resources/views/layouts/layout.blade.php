@@ -11,11 +11,12 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            <!-- @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -27,8 +28,7 @@
                         @endif
                     @endauth
                 </div>
-            @endif
-
+            @endif -->
                 @yield('content')
         </div>
     </body>

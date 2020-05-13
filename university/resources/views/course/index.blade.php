@@ -15,7 +15,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{$course->coursetitle}}</h5>
-                    <h5 class="card-title">{{$course->crdhr}}</h5>
+                    <h5 class="card-title">Credit hrs: {{$course->crdhr}}</h5>
                     <a href="/course/{{$course->code}}" class="btn btn-primary">View</a>
                 </div>
             </div>

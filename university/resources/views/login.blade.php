@@ -8,9 +8,10 @@
         <div class="title m-b-md">
             Welcome!!!
         </div>
-
-        <div class="links">
+        <div class="">
             <h2>Login</h2>
+        </div>
+        <div class="links">
             <form action="/" method="POST">
                 @csrf
 

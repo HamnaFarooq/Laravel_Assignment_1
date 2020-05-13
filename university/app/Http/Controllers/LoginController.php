@@ -34,8 +34,8 @@ class LoginController extends Controller
 				return redirect()->back()->withErrors(["my error"=>"Incorrect Username or Password!"]);
 			}
 			else{
+				$request->session()->put('type', $type);
 				$request->session()->put('user', $student);
-				$request->session()->push('type', $type);
 				return redirect('/home');
 			}
 		}
@@ -48,10 +48,19 @@ class LoginController extends Controller
 				return redirect()->back()->withErrors(["my error"=>"Incorrect Username or Password!"]);
 			}
 			else{
+				$request->session()->put('type', $type);
 				$request->session()->put('user', $teacher);
-				$request->session()->push('type', $type);
 				return redirect('/home');
 			}
+		}
+		else if($type->tname ==  'Admin'){
+			if($request->pass != ($type->users[0]->password)){
+				return redirect()->back()->withErrors(["my error"=>"Incorrect Username or Password!"]);
+			}else{
+				$request->session()->put('type', $type);
+				return redirect('/home');
+			}
+
 		}
 
 		return redirect()->back();

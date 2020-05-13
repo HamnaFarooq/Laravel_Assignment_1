@@ -5,7 +5,7 @@
 
     <div class="container-fluid">
       <div class="container">
-        <h2>Add Cafe</h2>
+        <h2>Add Cafe:</h2>
         <form action="{{'/cafes','CafesController'}}" method="POST">
             @csrf
 
