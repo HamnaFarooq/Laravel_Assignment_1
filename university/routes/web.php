@@ -18,6 +18,17 @@ Route::resource('/user','UserController');
 Route::resource('/student','StudentController');
 Route::resource('/course','CourseController');
 
+Route::get('/participate','ParticipateController@create');
+Route::post('/participate','ParticipateController@store');
+Route::delete('/participate','ParticipateController@destroy');
+Route::get('/register','RegisterController@create');
+Route::post('/register','RegisterController@store');
+Route::delete('/register','RegisterController@destroy');
+Route::get('/issue','TeacherissueController@create');
+Route::post('/issue','TeacherissueController@store');
+Route::patch('/issue','TeacherissueController@update');
+
+
 Route::get('/extra', function () {
     //
     //Checking Relationships:
@@ -43,13 +54,3 @@ Route::get('/extra', function () {
     //
     //
 });
-
-
-Route::get('/participate','ParticipateController@create');
-Route::post('/participate','ParticipateController@store');
-Route::delete('/participate','ParticipateController@destroy');
-Route::get('/register','RegisterController@create');
-Route::post('/register','RegisterController@store');
-Route::delete('/register','RegisterController@destroy');
-// Route::resource('/participate','ParticipateController');
-// Route::resource('/purchase','PurchaseController');

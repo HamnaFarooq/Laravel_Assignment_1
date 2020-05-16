@@ -20,4 +20,8 @@ class Teachers extends Model
 	public static function getCoursesOf($teacher_id){
 		return Teachers::with('courses')->where('TId', $teacher_id)->first()->courses;
 	}
+
+	public function issued(){
+		return $this->hasMany('App\Teacherissue','Tid');
+	}
 }

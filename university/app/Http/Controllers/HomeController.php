@@ -22,6 +22,7 @@ class HomeController extends Controller
 				// $courses = Teachers::with('courses')->where('TId', $id)->first()->courses;
 				$courses = Teachers::getCoursesOf($id);
 				$books = Teachers::with('books')->where('TId', $id)->first()->books;
+				// dd($books);
 				return view('home',compact('courses' , 'books'));
 			}
 			elseif ($type->tname == 'Admin') {

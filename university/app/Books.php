@@ -13,4 +13,8 @@ class Books extends Model
 	public function teachers(){
 		return $this->belongsToMany('App\Teachers', 'teacherissue' , 'Isbn' , 'TId');
 	}
+
+	public function issuers(){
+		return $this->hasMany('App\Teacherissue','Isbn');
+	}
 }

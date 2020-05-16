@@ -94,6 +94,9 @@
             <b>Books issues by you:</b>
         </div>
         <div class="row">
+            <a href="/issue" class="btn btn-primary"> Issue another Book </a>
+        </div>
+        <div class="row">
             @foreach ( $books as $book )
             <div class="col col-md-3">
                 <div class="card">
@@ -103,6 +106,12 @@
                         <p class="card-text">{{$book->Price}}$</p>
                         <p class="card-text">By: {{$book->Publisher}}</p>
                     </div>
+                    <form class="warn" action="/issue" method="post">
+                        @csrf
+                        @method('patch')
+                        <input type="text" class="hidden" name="Isbn" value="{{$book->Isbn}}">
+                        <button student="submit" class="btn" name="button">Return</button>
+                    </form>
                 </div>
             </div>
             @endforeach
