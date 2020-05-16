@@ -28,6 +28,11 @@ Route::get('/issue','TeacherissueController@create');
 Route::post('/issue','TeacherissueController@store');
 Route::patch('/issue','TeacherissueController@update');
 
+Route::get('/cafeteria', function () {
+	$cafes = App\Cafes::with('products')->get();
+	return view('cafes.productsincafe', compact('cafes'));
+});
+
 
 Route::get('/extra', function () {
     //

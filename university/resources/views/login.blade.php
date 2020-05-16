@@ -2,9 +2,14 @@
 @section('content')
 
 <div class="container-fluid">
+    <div class="logout">
+        <a href="/cafeteria" class="btn btn-primary"> Cafeteria </a>
+    </div>
+
 <?php if(session('user') == null){ ?>
 
     <div class="content">
+
         <div class="title m-b-md">
             Welcome!!!
         </div>
