@@ -46,7 +46,7 @@
             <b>You are Registered in the following Courses:</b>
         </div>
         <div class="row">
-            <a href="/" class="btn btn-primary"> Register another Course </a>
+            <a href="/register" class="btn btn-primary"> Register another Course </a>
         </div>
         <div class="row">
             @foreach ( $learning as $course )
@@ -61,6 +61,7 @@
                     <form class="warn" action="/register" method="post">
                         @csrf
                         @method('delete')
+                        <input type="text" class="hidden" name="code" value="{{$club->socid}}">
                         <button student="submit" class="btn" name="button">Un-Register</button>
                     </form>
                 </div>

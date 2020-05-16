@@ -25,4 +25,8 @@ class Student extends Model
 		return $this->hasMany('App\Participate','sid');
 	}
 
+	public function registered(){
+		return $this->hasMany('App\Register','sid');
+	}
+
 }

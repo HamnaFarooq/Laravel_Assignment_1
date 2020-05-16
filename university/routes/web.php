@@ -48,5 +48,8 @@ Route::get('/extra', function () {
 Route::get('/participate','ParticipateController@create');
 Route::post('/participate','ParticipateController@store');
 Route::delete('/participate','ParticipateController@destroy');
+Route::get('/register','RegisterController@create');
+Route::post('/register','RegisterController@store');
+Route::delete('/register','RegisterController@destroy');
 // Route::resource('/participate','ParticipateController');
 // Route::resource('/purchase','PurchaseController');

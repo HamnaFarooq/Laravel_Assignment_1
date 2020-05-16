@@ -21,4 +21,7 @@ class Course extends Model
 	public function students(){
 		return $this->belongsToMany('App\Student', 'register' , 'code' , 'sid' );
 	}
+	public function register(){
+		return $this->hasMany('App\Register','code');
+	}
 }
