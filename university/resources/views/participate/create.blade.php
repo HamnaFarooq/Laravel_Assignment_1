@@ -1,28 +1,18 @@
-<!-- @extends('layouts.layout')
+@extends('layouts.layout')
 @section('content')
-
-<a href="{{'/participate','participateController'}}" class="btn"> Go Back </a>
+<a href="/home" class="btn"> Go Back </a>
 
 <div class="container-fluid">
     <div class="container">
-        <h2>Add participate</h2>
+        <h2>Join Society:</h2>
         <form action="{{'/participate','participateController'}}" method="POST">
             @csrf
 
             <div class="form-group">
-                <label for="tid">password:</label>
-                <select class="form-control" name="tid">
-                    @foreach ($types as $type)
-                    <option value={{$type->tid}}>{{$type->tname}}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="tid">password:</label>
-                <select class="form-control" name="tid">
-                    @foreach ($types as $type)
-                    <option value={{$type->tid}}>{{$type->tname}}</option>
+                <label for="socid">Societies:</label>
+                <select class="form-control" name="socid">
+                    @foreach ($clubs as $club)
+                    <option value={{$club->socid}}>{{$club->socname}}</option>
                     @endforeach
                 </select>
             </div>
@@ -35,10 +25,10 @@
             @endforeach
             @endif
 
-            <button participate="submit" class="btn btn-primary">Submit</button>
+            <button participate="submit" class="btn btn-primary">Join</button>
 
         </form>
     </div>
 </div>
 
-@endsection -->
+@endsection

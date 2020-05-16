@@ -84,3 +84,17 @@ h2{
 	margin-left: 35%;
 	text-align: left;
 }
+
+.logout a{
+	margin-left: 90%;
+	right: 0;
+}
+.warn button{
+	border-color: red;
+	color: red;
+	background-color: white;
+}
+.warn button:hover{
+	color: white;
+	background-color: red;
+}

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Participate;
+use App\Societies;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ParticipateController extends Controller
@@ -12,11 +14,9 @@ class ParticipateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        // $participates = Participate::all();
-        // return view('participate.index',compact('participates'));
-    }
+    // public function index()
+    // {
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +25,15 @@ class ParticipateController extends Controller
      */
     public function create()
     {
-        //return view('participate.create');
+        $user = session('user')->sid;
+        $participated = Participate::where('sid',$user)->get();
+        $clubs = ( Participate::where('sid',$user)->get('socid') );
+        $arr = [];
+        foreach ($clubs as $id) {
+            array_push($arr, $id->socid);
+        }
+        $clubs = Societies::all()->except($arr);
+        return view('participate.create', compact('clubs'));
     }
 
     /**
@@ -36,14 +44,14 @@ class ParticipateController extends Controller
      */
     public function store(Request $request)
     {
-        // $validation = $request->validate([
-        //     'stitle' => 'unique:participates',
-        //     'sdate' => 'required'
-        // ]);
-        // $lastparticipate = Participate::get()->last();
-        // $request->merge(['sid' => ($lastparticipate->sid + 1)]);
-        // Participate::create($request->all());
-        // return redirect()->back();
+        $request['socid'] = $num = (int) $request->socid;
+        $month = Carbon::now()->format('F');
+        $request->merge(['joindate'=>$month]);
+        $user = session('user')->sid;
+        $request->merge(['sid'=>$user]);
+
+        Participate::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -65,8 +73,6 @@ class ParticipateController extends Controller
      */
     public function edit( $participate)
     {
-        // $participate = Participate::where('sid',$participates)->first();
-        // return view('participate.edit',compact('participate'));
     }
 
     /**
@@ -78,13 +84,6 @@ class ParticipateController extends Controller
      */
     public function update(Request $request, $participate)
     {
-        // $validation = $request->validate([
-        //     'stitle' => 'unique:participates|required',
-        //     'sdate' => 'required'
-        // ]);
-        // $updatedparticipate = Participate::where('sid',$participates)->first();
-        // $updatedparticipate->update($request->all());
-        // return redirect('/participates');
     }
 
     /**
@@ -93,9 +92,10 @@ class ParticipateController extends Controller
      * @param  \App\Participate  $participate
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $participate)
+    public function destroy(Request $request)
     {
-        // $deteteparticipate = Participate::where('sid',$participates)->first()->delete();
-        // return redirect('/participates');
+        $user = session('user')->sid;
+        $deteteparticipate = Participate::where('socid',$request->socid)->where('sid',$user)->first()->delete();
+        return redirect('/home');
     }
 }

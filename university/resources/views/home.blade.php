@@ -3,6 +3,9 @@
 <?php ?>
 <div class="container-fluid">
     <div class="content">
+        <div class="logout">
+            <a href="/logout" class="btn btn-danger"> Logout </a>
+        </div>
 
         @if(session('type') != null)
         <div class="title m-b-md">
@@ -12,9 +15,13 @@
         <!--  -->
         @if(session('type')->tname == 'Student')
         <!-- Student -->
+        <h3>Hi {{session('user')->sname}} !</h3>
         <!--  -->
         <div class="row">
             <b>You are Participating in the following Clubs:</b>
+        </div>
+        <div class="row">
+            <a href="/participate" class="btn btn-primary"> Join another Club </a>
         </div>
         <div class="row">
             @foreach ( $clubs as $club )
@@ -24,6 +31,12 @@
                         <h5 class="card-title">{{$club->socname}}</h5>
                         <p class="card-title">Type: {{$club->type}}</p>
                     </div>
+                    <form class="warn" action="/participate" method="post">
+                        @csrf
+                        @method('delete')
+                        <input type="text" class="hidden" name="socid" value="{{$club->socid}}">
+                        <button student="submit" class="btn" name="button">Leave Club</button>
+                    </form>
                 </div>
             </div>
             @endforeach
@@ -31,6 +44,9 @@
 
         <div class="row">
             <b>You are Registered in the following Courses:</b>
+        </div>
+        <div class="row">
+            <a href="/" class="btn btn-primary"> Register another Course </a>
         </div>
         <div class="row">
             @foreach ( $learning as $course )
@@ -42,6 +58,11 @@
                         <p class="card-title">Type: {{$course->coursetype}}</p>
                         <p class="card-title">Pre-req: {{$course->courseprereq}}</p>
                     </div>
+                    <form class="warn" action="/register" method="post">
+                        @csrf
+                        @method('delete')
+                        <button student="submit" class="btn" name="button">Un-Register</button>
+                    </form>
                 </div>
             </div>
             @endforeach
@@ -201,10 +222,6 @@
         redirect('/');
         @endif
 
-        <div class="">
-            <a href="/logout" class="btn btn-danger"> Logout </a>
-        </div>
     </div>
 </div>
-
 @endsection

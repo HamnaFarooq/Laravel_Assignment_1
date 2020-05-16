@@ -21,8 +21,8 @@ class Student extends Model
 		return $this->belongsToMany('App\Course', 'register' , 'sid' , 'code' );
 	}
 
-	// public function participated(){
-	// 	return $this->belongsTo('App\Participate','sid');
-	// }
+	public function participated(){
+		return $this->hasMany('App\Participate','sid');
+	}
 
 }

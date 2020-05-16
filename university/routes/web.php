@@ -45,5 +45,8 @@ Route::get('/extra', function () {
 });
 
 
+Route::get('/participate','ParticipateController@create');
+Route::post('/participate','ParticipateController@store');
+Route::delete('/participate','ParticipateController@destroy');
 // Route::resource('/participate','ParticipateController');
 // Route::resource('/purchase','PurchaseController');
