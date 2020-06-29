@@ -1,7 +1,7 @@
 # Laravel_Assignment_1
 My first Laravel Assignment: Student and Teachers Portal
 
-##Steps to use this project
+## Steps to use this project
 1. Visit the following URL and download composer to install it on your system.
 https://getcomposer.org/download/
 
@@ -18,7 +18,7 @@ https://www.apachefriends.org/download.html
 
 7. When you are in this folder, type the command "php artisan serve" 
 
-##The project should be running now.
+## The project should be running now.
 
 I have realized many mistakes I did during the development of this project.
 For example: I know that the functions should have been in the model but I put them in the controller for the time being. and that I haven't placed any checks for the inputs in the validation for example the max size of student name has to be max:20.
